@@ -1,0 +1,15 @@
+{
+  "name": "magenta-hot-reload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "dependencies": {
+    "chokidar": "^3.0.1",
+    "koa": "^2.7.0",
+    "koa-static": "^5.0.0",
+    "ws": "^7.0.0"
+  }
+}
