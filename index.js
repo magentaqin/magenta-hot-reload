@@ -85,6 +85,9 @@ const InjectedScript = `<script>{
         });
         break;
       case 'js':
+        const old_body = document.querySelector('body');
+        const new_body = old_body.cloneNode(true);
+        old_body.parentNode.replaceChild(new_body, old_body);
         eval(data.content);
         console.log('JS file updated.');
         break;
@@ -115,6 +118,9 @@ app.use(async (ctx, next) => {
   }
   if (file.endsWith('.css')) {
     ctx.type = 'text/css';
+  }
+  if (file.endsWith('.js')) {
+    ctx.type = 'text/javascript';
   }
   ctx.body = body;
   next();
