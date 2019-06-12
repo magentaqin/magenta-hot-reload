@@ -21,7 +21,7 @@ wss.on('connection', (ws) => {
          .on('error', error => log(`Watcher error: ${error}`))
          .on('all', async (event, filePath) => {
             let message = '';
-            console.log(path.extname(filePath));
+            console.log('Changed file extname', path.extname(filePath));
             switch(path.extname(filePath)) {
               case '.html':
                 body = await fs_promise.readFile(filePath, { encoding: 'utf-8'});
@@ -45,7 +45,6 @@ wss.on('connection', (ws) => {
     ws.on('error', (err) => {
       console.log('Websocket server error %s', err);
     })
-    ws.send('Websocket server is ready;')
 });
 
 const InjectedScript = `<script>{
@@ -81,7 +80,7 @@ const InjectedScript = `<script>{
           if (resource === data.content) {
             el.remove();
           }
-          document.head.insertAjacentHTML('beforeend', '<link rel="stylesheet" href="' + data.content + '" />');
+          document.head.insertAdjacentHTML('beforeend', '<link rel="stylesheet" href="' + data.content + '" />');
           console.log('CSS file updated.');
         });
         break;
@@ -97,6 +96,8 @@ const InjectedScript = `<script>{
 
 app.use(async (ctx, next) => {
   let file = ctx.path;
+  console.log('CTX PATH', file);
+
   if (ctx.path.endsWith('/')) {
     file = ctx.path + 'index.html';
   }
@@ -111,9 +112,12 @@ app.use(async (ctx, next) => {
   }
   if (file.endsWith('.html')) {
     body = body.replace('<body>', `<body>${InjectedScript}`);
-    ctx.body = body;
-    next();
   }
+  if (file.endsWith('.css')) {
+    ctx.type = 'text/css';
+  }
+  ctx.body = body;
+  next();
 });
 
 app.listen(3001);
