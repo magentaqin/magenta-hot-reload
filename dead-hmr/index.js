@@ -7,7 +7,7 @@ const fs_promise = require('fs').promises;
 const path = require('path');
 const wss = new WebSocket.Server({ port: 8000 });
 
-const watcher = chokidar.watch('./static', {
+const watcher = chokidar.watch('./dead-hmr/static', {
   ignored: /node_modules|\.git/,
 });
 
@@ -106,7 +106,7 @@ app.use(async (ctx, next) => {
   }
   let body;
   try {
-    body = await fs_promise.readFile('./static' + file, {
+    body = await fs_promise.readFile('./dead-hmr/static' + file, {
       encoding: 'utf-8'
     });
   } catch(e) {

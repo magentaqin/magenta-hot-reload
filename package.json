@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "node index"
-  },
   "dependencies": {
     "koa": "^2.7.0",
     "koa-static": "^5.0.0",
