@@ -7,7 +7,6 @@
     "chokidar": "^2.1.5",
     "koa": "^2.7.0",
     "koa-static": "^5.0.0",
-    "vue-template-compiler": "^2.6.10",
     "ws": "^7.0.0"
   }
 }

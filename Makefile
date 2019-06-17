@@ -1,4 +1,4 @@
+install-dead-hmr:
+	cd dead-hmr && yarn
 run-dead-hmr:
-	node dead-hmr
-run-vue-hmr:
-	node vue-hmr
+	cd dead-hmr && node index.js

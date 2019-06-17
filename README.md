@@ -1,6 +1,8 @@
 # magenta-hot-reload
 
 #### Dead-HMR
+* Install: `make install-dead-hmr`
+
 * Run: `make run-dead-hmr`
 
 * Description:
