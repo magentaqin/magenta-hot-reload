@@ -28,3 +28,16 @@ If it is of type `js`, use `eval()` to execute script.
 ( To be noticed, if we don't remove previous listeners before excuting script, listeners will be pushed to the element listener array. To fix this, we have to remove all of the previous listeners. The easy way is to clone old node, and replace it with a new one.)
 
 * Serious bug of Dead-HMR: `No Diff`. I just simply replace the whole old one the new one.
+
+
+#### Easy-Hot-Client
+
+It is a mini version of [webpack-hot-client](https://github.com/webpack-contrib/webpack-hot-client).
+
+Perhaps you want to run webpack-hot-client in your real app first. Let's try!
+
+```bash
+// run
+make run-webpack-hot-client-demo
+
+```
