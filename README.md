@@ -34,10 +34,13 @@ If it is of type `js`, use `eval()` to execute script.
 
 It is a mini version of [webpack-hot-client](https://github.com/webpack-contrib/webpack-hot-client).
 
-Perhaps you want to run webpack-hot-client in your real app first. Let's try!
+First, let's see how to use webpack-hot-client in your real app.
 
 ```bash
+// install
+make install-webpack-hot-client-demo
 // run
 make run-webpack-hot-client-demo
 
 ```
+
